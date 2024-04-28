@@ -1,0 +1,100 @@
+import telebot;
+import random
+name = "@linedeadbot"
+f = open('data/shutocki.txt', encoding='UTF-8')
+jokes = f.read().split('\n')
+f.close()
+bot = telebot.TeleBot('6950414285:AAEG6jTxKbg1nmHFopMSIQVfKp4IBDpypxc');
+@bot.message_handler(content_types=['text'])
+@bot.message_handler(content_types=['text', 'document', 'audio'])
+def get_text_messages(message):
+    cat = open('data/cat.jpeg', 'rb')
+    dog = open("data/dog.jpeg", "rb")
+    duck = open("data/duck.jpg", "rb")
+    cute1 = open("data/cute1.jpeg", "rb")
+    cute2 = open("data/cute2.jpeg", "rb")
+    cute3 = open("data/cute3.jpeg", "rb")
+    if message.text == "Привет" or message.text == "привет" or message.text == "Здраствуйте" or message.text == "здраствуйте":
+        bot.send_message(message.from_user.id, "Привет, чем я могу тебе помочь?")
+    elif message.text == "/help":
+        bot.send_message(message.from_user.id, "Спросите 'Когда дедлайн?'")
+    elif message.text == "Когда дедлайн?" or message.text == "Когда дедлайн" or message.text == "когда дедлайн" or message.text == "когда дедлайн?" or message.text == "дедлайн" or message.text == "Дедлайн":
+        number = random.randint(1, 30)
+        if number == 1:
+            bot.send_message(message.from_user.id,"Не скоро")
+        elif number == 2:
+            bot.send_message(message.from_user.id,"Ой да кому нужен твой дедлайн")
+        elif number == 3:
+            bot.send_message(message.from_user.id,"Не сегодня")
+        elif number == 4:
+            bot.send_message(message.from_user.id,"Забудь ты про этот дедлайн, посмотри в окно, какая хорошая погода")
+        elif number == 5:
+            bot.send_message(message.from_user.id,"Не убежит твой дедлайн никуда")
+        elif number == 6:
+            bot.send_message(message.from_user.id, "Когда-нибудь")
+        elif number == 7:
+            bot.send_message(message.from_user.id, "Однажды")
+        elif number == 8:
+            bot.send_message(message.from_user.id, "Не сейчас")
+        elif number == 9:
+            bot.send_message(message.from_user.id, "Спрашиваю духов об этом")
+            bot.send_message(message.from_user.id, "Духи говорят что он не скоро")
+        elif number == 10:
+            bot.send_message(message.from_user.id, "Спрашиваю магический шар об этом")
+            bot.send_message(message.from_user.id, "Магический шар говорит не сегодня")
+        elif number == 11:
+            bot.send_message(message.from_user.id, "Давайте лучше анекдот:")
+            bot.send_message(message.from_user.id, jokes[random.randint(0, 6)])
+        elif number == 12:
+            bot.send_message(message.from_user.id, "Забей")
+        elif number == 13:
+            bot.send_message(message.from_user.id, "Зачем тебе дедлайн, я тебе щас анекдот расскажу")
+            bot.send_message(message.from_user.id, jokes[random.randint(0, 6)])
+        elif number == 14:
+            bot.send_message(message.from_user.id, "У тебя еще много времени")
+        elif number == 15:
+            bot.send_message(message.from_user.id, "Расслабься он не скоро")
+        elif number == 16:
+            bot.send_message(message.from_user.id, "Зачем тебе дедлайн посмотри лучше на котиков")
+            bot.send_photo(message.chat.id, cat)
+        elif number == 17:
+            bot.send_message(message.from_user.id, "Зачем тебе дедлайн посмотри лучше на щенят")
+            bot.send_photo(message.chat.id, dog)
+        elif number == 18:
+            bot.send_message(message.from_user.id, "Лучше почитай новости")
+        elif number == 19:
+            bot.send_message(message.from_user.id, "Ты знаешь что компьютерные игры помогают людям расслабиться, попробуй и ты")
+        elif number == 20:
+            bot.send_message(message.from_user.id, "Внимание анекдот")
+            bot.send_message(message.from_user.id, jokes[random.randint(0, 6)])
+        elif number == 21:
+            bot.send_message(message.from_user.id, "ещё успеется")
+        elif number == 22:
+            bot.send_message(message.from_user.id, "Лучше подумай что будешь делать на праздник")
+        elif number == 23:
+            bot.send_message(message.from_user.id, "Какой может быть дедлайн, если на улице так хорошо")
+        elif number == 24:
+            bot.send_message(message.from_user.id, "Сейчас лучше поспать, а потом уже дедлайн")
+        elif number == 25:
+            bot.send_message(message.from_user.id, "Ой какие утята")
+            bot.send_photo(message.chat.id, duck)
+        elif number == 26:
+            bot.send_message(message.from_user.id, "Минутка юмора")
+            bot.send_message(message.from_user.id, jokes[random.randint(0,6)])
+        elif number == 27:
+            bot.send_message(message.from_user.id, "Минутка милоты")
+            bot.send_photo(message.chat.id, cute1)
+            bot.send_photo(message.chat.id, cute2)
+            bot.send_photo(message.chat.id, cute3)
+        elif number == 28:
+            bot.send_message(message.from_user.id, "Интересный факт")
+            bot.send_message(message.from_user.id, "Слово «deadline» произошло в XIX веке, так называли линию, которую нельзя пересекать в концентрационном лагере для военнопленных во время гражданской войны в США, но если её переступить, то охрана сразу открывала огонь на поражение.")
+        elif number == 29:
+            bot.send_message(message.from_user.id, "В ближайшем будущем")
+            bot.send_message(message.from_user.id, "Но лучше начать его сейчас")
+        elif number == 30:
+            bot.send_message(message.from_user.id, 'ХВАТИТ СПРАШИВАТЬ КОГДА ДЕДЛАЙН!!!')
+            bot.send_message(message.from_user.id, "СЯДЬ ТЫ УЖЕ ЗА СВОЙ ПРОЕКТ И СДЕЛАЙ ЕГО!!!")
+    else:
+        bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
+bot.polling(none_stop=True, interval=0)
